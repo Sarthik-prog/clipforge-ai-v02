@@ -70,3 +70,40 @@ h2{font:600 19px 'Space Grotesk',sans-serif;margin:0}
 footer{text-align:center;border-top:1px solid #242633;padding:20px;color:#666d80;font-size:9px;letter-spacing:1.8px;font-weight:800}
 footer span{color:#a78bfa;margin:0 5px}
 @media(max-width:560px){.app-shell{padding:0 14px}.topbar{height:65px}.hero{padding:25px 5px 28px}h1{letter-spacing:-1.4px}.panel{padding:16px;border-radius:15px}.section-head{align-items:flex-start}.muted{font-size:9px}.range-grid{grid-template-columns:1fr 1fr}.duration-box{grid-column:1/-1;display:flex;min-width:0;justify-content:flex-start}.duration-box small{margin-left:-2px}.range-actions{flex-wrap:wrap}.caption-controls{flex-direction:column}.caption-controls select{max-width:none}.how-grid{gap:7px}.how-grid>div{padding:12px 9px}.how-grid span{font-size:9px}.download-result{align-items:flex-start;flex-direction:column}}
+
+
+/* ClipForge 0.2 studio polish */
+:root{color-scheme:dark}
+body{background:radial-gradient(ellipse at 12% 0%,#242044 0,transparent 34%),radial-gradient(ellipse at 92% 18%,#102b3a 0,transparent 28%),#080a11}
+.app-shell{max-width:1120px}
+.topbar{position:sticky;top:0;z-index:20;background:#090b12eF;backdrop-filter:blur(16px);padding:0 4px}
+.brand-mark{border-radius:11px;background:linear-gradient(145deg,#a78bfa,#6254df 60%,#38bdf8);box-shadow:0 0 28px #8b5cf633}
+.version{letter-spacing:1.5px}
+main{padding-top:28px}
+.hero{padding:34px 0 40px}
+.eyebrow{padding:8px 12px;border:1px solid #49406a;border-radius:30px;background:#211b38aa}
+h1{letter-spacing:-2.4px}
+.panel{position:relative;border-color:#303448;background:linear-gradient(145deg,#171b29ed,#10131df2);box-shadow:0 18px 55px #0003,inset 0 1px #ffffff08}
+.panel:focus-within{border-color:#6254a0}
+.section-head{margin-bottom:20px}
+.step{min-width:34px;text-align:center;background:#29213f;border:1px solid #55417f}
+.dropzone{min-height:178px;border-color:#62568b;background:linear-gradient(135deg,#1b1930,#121b29);transition:border-color .18s,transform .18s,background .18s}
+.dropzone:hover{border-color:#a78bfa;background:linear-gradient(135deg,#211b3b,#142333)}
+.upload-icon{width:52px;height:52px;border:1px solid #67549a;background:#342653;color:#ddd2ff}
+.preview-wrap{border:1px solid #34394c;box-shadow:0 12px 34px #0005}
+.range-grid input:focus,.caption-controls select:focus,.caption-edit textarea:focus{outline:2px solid #8b5cf6;outline-offset:1px;border-color:transparent}
+.secondary-btn{transition:background .18s,border-color .18s}
+.secondary-btn:hover{background:#2d3348;border-color:#7063a6}
+.primary-btn,.export-btn{transition:filter .18s,transform .18s}
+.primary-btn:hover:not(:disabled),.export-btn:hover:not(:disabled){filter:brightness(1.12);transform:translateY(-1px)}
+.caption-row:last-child{border-bottom:0}
+.download-result{box-shadow:inset 0 1px #ffffff08}
+.status-line{padding:9px 12px;border:1px solid #292d3d;border-radius:10px;background:#111520}
+@media(max-width:560px){
+ .app-shell{padding:0 12px}
+ .topbar{padding:0 2px}
+ .hero{padding:27px 2px 30px}
+ h1{letter-spacing:-1.6px}
+ .panel{box-shadow:0 12px 32px #0003}
+ .dropzone{min-height:160px}
+}
