@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FFmpeg } from '@ffmpeg/ffmpeg';
 import { fetchFile, toBlobURL } from '@ffmpeg/util';
 import { pipeline, env } from '@huggingface/transformers';
@@ -60,6 +60,7 @@ export default function App() {
   const [status, setStatus] = useState('Ready when you are');
   const [busy, setBusy] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [playhead, setPlayhead] = useState(0);
   const [captions, setCaptions] = useState([]);
   const [language, setLanguage] = useState('auto');
   const [modelReady, setModelReady] = useState(false);
@@ -170,7 +171,7 @@ export default function App() {
     const blob = new Blob([makeSrt(captions)], { type: 'text/plain;charset=utf-8' });
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'clipforge-captions.srt'; a.click(); URL.revokeObjectURL(a.href);
   }
-  const activeCaption = useMemo(() => captions.find(c => videoRef.current && videoRef.current.currentTime >= c.start && videoRef.current.currentTime <= c.end), [captions]);
+  const activeCaption = captions.find(c => playhead >= c.start && playhead <= c.end);
   const subtitlePreview = activeCaption?.text || '';
 
   return <div className="app-shell">
@@ -199,7 +200,7 @@ export default function App() {
       {file && <section className="panel editor-panel">
         <div className="section-head"><div><span className="step">02</span><h2>Choose your moment</h2></div><span className="muted">{formatTime(duration)} total</span></div>
         <div className="preview-wrap">
-          <video ref={videoRef} src={url} controls playsInline onLoadedMetadata={onVideoMeta} onTimeUpdate={() => setProgress(p => p)} />
+          <video ref={videoRef} src={url} controls playsInline onLoadedMetadata={onVideoMeta} onTimeUpdate={e => setPlayhead(e.currentTarget.currentTime)} />
           {subtitlePreview && <div className="subtitle-preview">{subtitlePreview}</div>}
         </div>
         <div className="range-grid">
