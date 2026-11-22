@@ -6,6 +6,7 @@
   "scripts": { "dev": "vite --host 0.0.0.0", "build": "vite build", "preview": "vite preview --host 0.0.0.0" },
   "dependencies": {
     "@ffmpeg/ffmpeg": "0.12.10",
+    "@ffmpeg/core": "0.12.10",
     "@ffmpeg/util": "0.12.2",
     "@huggingface/transformers": "^3.7.2",
     "lucide-react": "^0.468.0",
